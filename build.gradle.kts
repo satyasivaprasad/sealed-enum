@@ -96,3 +96,23 @@ subprojects {
         }
     }
 }
+
+tasks {
+    val jacocoMergeTest by registering(JacocoMerge::class) {
+        destinationFile = file("$buildDir/jacoco/test.exec")
+        executionData = fileTree(rootDir) {
+            include("**/build/jacoco/test.exec")
+        }
+    }
+
+    jacocoTestReport {
+        dependsOn(jacocoMergeTest)
+
+        sourceSets(*subprojects.map { it.sourceSets.main.get() }.toTypedArray())
+
+        reports {
+            html.isEnabled = true
+            xml.isEnabled = true
+        }
+    }
+}
