@@ -19,7 +19,6 @@ subprojects {
         plugin<org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper>()
         plugin<JacocoPlugin>()
         plugin<io.gitlab.arturbosch.detekt.DetektPlugin>()
-        plugin<MavenPublishPlugin>()
         plugin<org.jetbrains.dokka.gradle.DokkaPlugin>()
     }
 
@@ -75,22 +74,24 @@ subprojects {
             outputDirectory.set(javadoc.get().destinationDir)
         }
 
-        val sourcesJar by creating(Jar::class) {
-            archiveClassifier.set("sources")
-            from(sourceSets.main.get().allSource)
-        }
+        plugins.withType(MavenPublishPlugin::class) {
+            val sourcesJar by creating(Jar::class) {
+                archiveClassifier.set("sources")
+                from(sourceSets.main.get().allSource)
+            }
 
-        val javadocJar by creating(Jar::class) {
-            archiveClassifier.set("javadoc")
-            from(dokkaHtml)
-        }
+            val javadocJar by creating(Jar::class) {
+                archiveClassifier.set("javadoc")
+                from(dokkaHtml)
+            }
 
-        publishing {
-            publications {
-                create<MavenPublication>("default") {
-                    from(this@subprojects.components["java"])
-                    artifact(sourcesJar)
-                    artifact(javadocJar)
+            publishing {
+                publications {
+                    create<MavenPublication>("default") {
+                        from(this@subprojects.components["java"])
+                        artifact(sourcesJar)
+                        artifact(javadocJar)
+                    }
                 }
             }
         }
