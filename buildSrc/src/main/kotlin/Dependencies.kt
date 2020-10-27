@@ -7,11 +7,13 @@ object Dependencies {
     const val incap = "net.ltgt.gradle.incap:incap:${Versions.incap}"
     const val incapProcessor = "net.ltgt.gradle.incap:incap-processor:${Versions.incap}"
     const val junit = "org.junit.jupiter:junit-jupiter:${Versions.junit}"
+    const val kotlinCompilerEmbeddable = "org.jetbrains.kotlin:kotlin-compiler-embeddable:${Versions.kotlin}"
     const val kotlinCompileTesting = "com.github.tschuchortdev:kotlin-compile-testing:${Versions.kotlinCompileTesting}"
     const val kotlinPoet = "com.squareup:kotlinpoet:${Versions.kotlinPoet}"
     const val kotlinPoetClassInspectorElements = "com.squareup:kotlinpoet-classinspector-elements:${Versions.kotlinPoet}"
     const val kotlinPoetMetadata = "com.squareup:kotlinpoet-metadata:${Versions.kotlinPoet}"
     const val kotlinPoetMetadataSpecs = "com.squareup:kotlinpoet-metadata-specs:${Versions.kotlinPoet}"
+    const val kspApi = "com.google.devtools.ksp:symbol-processing-api:${Versions.ksp}"
 }
 
 fun DependencyHandler.incap() {
