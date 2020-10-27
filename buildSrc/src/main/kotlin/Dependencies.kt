@@ -9,10 +9,12 @@ object Dependencies {
     const val junit = "org.junit.jupiter:junit-jupiter:${Versions.junit}"
     const val kotlinCompilerEmbeddable = "org.jetbrains.kotlin:kotlin-compiler-embeddable:${Versions.kotlin}"
     const val kotlinCompileTesting = "com.github.tschuchortdev:kotlin-compile-testing:${Versions.kotlinCompileTesting}"
+    const val kotlinCompileTestingKsp = "com.github.tschuchortdev:kotlin-compile-testing-ksp:${Versions.kotlinCompileTesting}"
     const val kotlinPoet = "com.squareup:kotlinpoet:${Versions.kotlinPoet}"
     const val kotlinPoetClassInspectorElements = "com.squareup:kotlinpoet-classinspector-elements:${Versions.kotlinPoet}"
     const val kotlinPoetMetadata = "com.squareup:kotlinpoet-metadata:${Versions.kotlinPoet}"
     const val kotlinPoetMetadataSpecs = "com.squareup:kotlinpoet-metadata-specs:${Versions.kotlinPoet}"
+    const val ksp = "com.google.devtools.ksp:symbol-processing:${Versions.ksp}"
     const val kspApi = "com.google.devtools.ksp:symbol-processing-api:${Versions.ksp}"
 }
 
